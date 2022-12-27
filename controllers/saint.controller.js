@@ -4,18 +4,16 @@ const Saint = require('../models/saint.model');
 exports.getAllSaints = async (req , res) => {
   try{
 
-    const saints = await Saint.find()
-    
-    // const saints = await Saint.find().populate([
-    //   {
-    //     path:'residence', 
-    //     populate: {
-    //       path : 'parish',
-    //       select:['parish_nm']
-    //     }
-    // },
-    //   {path:'campus', select:['campus_nm']},
-    // ])
+    const saints = await Saint.find().populate([
+      {
+        path:'residence', 
+        populate: {
+          path : 'parish',
+          select:['parish_nm']
+        }
+    },
+      {path:'campus', select:['campus_nm']},
+    ])
 
     if(saints.length == 0){
       return JSONResponse.success(res,"No saint found",saints, 404);
