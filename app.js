@@ -54,12 +54,12 @@ app.use((req, res, next) =>{
 });
 
 app.get('/api/v1', (req,res) => {
-  res.send(" OCOJ JAMAICA SAINTS API endpoints - genres , movies , users , auth");
+  res.send(" OCOJ JAMAICA SAINTS API endpoints - saints , campuses , residences");
 });
 
-app.use('/api/v1/campus', campusRouter);
-app.use('/api/v1/saint', saintRouter);
-app.use('/api/v1/residence', residenceRouter);
+app.use('/api/v1/campuses', campusRouter);
+app.use('/api/v1/saints', saintRouter);
+app.use('/api/v1/residences', residenceRouter);
 
 
 
